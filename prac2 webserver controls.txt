@@ -1,0 +1,75 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" 
+Inherits="web_server_control.WebForm1" %>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+ <title></title>
+</head>
+<body>
+ <h1> Webform Controls</h1>
+ <h2>STUDENT REGISTRATION</h2>
+ <form id="form1" runat="server">
+ <div>
+ </div>
+ first name:<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+ <p>
+ last name:<asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+ </p>
+ Email id:<asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+ 
+ <p>
+ Gender:<asp:RadioButton ID="RadioButton1" runat="server" Text="male" />
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <asp:RadioButton ID="RadioButton3" runat="server" Text="female" />
+ </p>
+ <p>
+ <asp:Button ID="Button1" runat="server" OnClick="Button1_Click1" Text="submit" />
+ </p>
+ <p>
+ <asp:Label ID="Label1" runat="server"></asp:Label>
+ </p>
+ <p>
+ <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+ </p>
+ <p>
+ <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
+ </p>
+ <p>
+ <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
+ </p>
+ </form>
+</body>
+</html>
+
+ C# code 
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+namespace web_server_control
+{
+ public partial class WebForm1 : System.Web.UI.Page
+ {
+ protected void Page_Load(object sender, EventArgs e)
+ {
+ }
+ protected void Button1_Click1(object sender, EventArgs e)
+ {
+ string fname = TextBox1.Text;
+ string lname = TextBox2.Text; 
+ string email = TextBox3.Text; 
+ String gender = " ";
+ if(RadioButton1.Checked) 
+ {
+ gender = RadioButton1.Text;
+ }
+ else
+ {
+ gender = RadioButton3.Text;
+ }
+ Label1.Text = "first name=" + fname;
+ Label2.Text = "last name=" + lname;
+ Label3.Text = "email id=" + email;
+ Label5.Text = "Gender=" + gender;
+ }
+ }
+}
